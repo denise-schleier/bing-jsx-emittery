@@ -1,0 +1,19 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.ImageListView {
+  display: flex;
+  flex-direction: column;
+}
+
+.RenderItemDefault {
+  background-color: #c1c1c1;
+}
+
+.viteLogo {
+  background-color: #61a1f1;
+}
