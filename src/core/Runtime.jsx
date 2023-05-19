@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { useEmittery } from '../core/Emittery'
+import { useEmittery } from './Emittery'
 
 export function Runtime({ ctx }) {
     const emittery = useEmittery(ctx)

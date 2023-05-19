@@ -8,7 +8,7 @@ export function RenderTarget({ctx}) {
 
     useEffect(() => {
         const handleItemAdded = (item) => {
-            setItems([item, ...items])
+            setItems([item.data, ...items])
         }
 
         return emittery.on('itemAdded', handleItemAdded)

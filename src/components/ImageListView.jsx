@@ -8,7 +8,7 @@ export function ImageListView({ ctx }) {
 
     useEffect(() => {
         const handleImagesLoaded = (loadedImages) => {
-            setImages(loadedImages)
+            setImages(loadedImages.data)
         }
 
         const clearList = () => {

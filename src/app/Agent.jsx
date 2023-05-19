@@ -13,7 +13,7 @@ export function Agent({ ctx }) {
                     url: 'https://bing-image-search1.p.rapidapi.com/images/search',
                     method: 'GET',
                     params: {
-                        q: query,
+                        q: query.data,
                         count: 50,
                         offset: 0,
                         safeSearch: 'off'
@@ -37,6 +37,7 @@ export function Agent({ ctx }) {
         }
 
         return emittery.on('query', (q) => {
+            console.log(q)
             fetchImages(q)
         })
     }, [emittery])
