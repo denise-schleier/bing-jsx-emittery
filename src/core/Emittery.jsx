@@ -15,7 +15,7 @@ export class EmitterySite extends Emittery {
     emit(event, ...data) {
         this.serial += 1
 
-        super.emit(event, ...data)
+        super.emit(event, [this.ctx, this.serial, ...data])
     }
 }
 

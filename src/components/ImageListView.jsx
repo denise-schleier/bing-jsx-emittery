@@ -15,12 +15,12 @@ export function ImageListView({ ctx }) {
             setImages([])
         }
 
-        emittery.on('imagesLoaded', handleImagesLoaded)
-        emittery.on('query', clearList)
+        const off1 = emittery.on('imagesLoaded', handleImagesLoaded)
+        const off2 = emittery.on('query', clearList)
 
         return () => {
-            emittery.off('imagesLoaded', handleImagesLoaded)
-            emittery.on('query', clearList)
+            off1()
+            off2()
         }
     }, [setImages,emittery])
 
@@ -28,7 +28,7 @@ export function ImageListView({ ctx }) {
         <div className="ImageListView">
             {images.map((image, i) => (
                 <a key={i} href={image.contentUrl}>
-                    <img src={image.thumbnailUrl} alt={image.name} width="200" />
+                    <img src={image.thumbnailUrl} alt={image.name} width="500" />
                 </a>
             ))}
         </div>

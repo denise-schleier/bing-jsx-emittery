@@ -25,10 +25,9 @@ export function Agent({ ctx }) {
                 }
                 const response = await axios.request(options)
 
-                if (response.status = 200) {
+                if (response.status == 200) {
                     const data = await response.data
-                    const retrievedImages = data.value
-                    emittery.emit('imagesLoaded', retrievedImages) // Emitting the 'imagesLoaded' event with the retrieved images
+                    emittery.emit('imagesLoaded', data.value) // Emitting the 'imagesLoaded' event with the retrieved images
                 } else {
                     console.error('Error retrieving images:', response)
                 }
@@ -37,11 +36,10 @@ export function Agent({ ctx }) {
             }
         }
 
-        emittery.on('query', (q) => {
+        return emittery.on('query', (q) => {
             fetchImages(q)
         })
-
     }, [emittery])
 
-    return null // The Agent component doesn't need to render anything
+    return <></>
 }

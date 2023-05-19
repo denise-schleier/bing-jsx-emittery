@@ -8,20 +8,10 @@ export function RenderTarget({ctx}) {
 
     useEffect(() => {
         const handleItemAdded = (item) => {
-            const nItems = items
-
-            nItems.push(item)
-
-            setItems(nItems)
-
-            console.log(nItems)
+            setItems([item, ...items])
         }
 
-        emittery.on('itemAdded', handleItemAdded)
-
-        return () => {
-            emittery.off('itemAdded', handleItemAdded)
-        }
+        return emittery.on('itemAdded', handleItemAdded)
     }, [items,setItems,emittery])
 
     return (
