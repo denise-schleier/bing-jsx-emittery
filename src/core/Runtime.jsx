@@ -8,7 +8,7 @@ export function Runtime({ ctx }) {
     useEffect(() => {
         const x = setInterval(() => {
             emittery.emit('itemAdded', {className: 'viteLogo', title: 'vite'})
-        }, 1000)
+        }, 10000)
 
         return () => {
             clearInterval(x)

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useEmittery } from '../core/Emittery'
 
 export function RenderTarget({ctx}) {
-    const [items, setItems] = useState([{className: "RenderItemDefault", title: "XYZ"}])
+    const [items, setItems] = useState([])//[{className: "RenderItemDefault", title: "XYZ"}])
     const emittery = useEmittery(ctx)
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export function RenderTarget({ctx}) {
     return (
         <div className="RenderTarget">
             {items.map((item, i) => (
-                <span key={i} className={item.className}> {item.title} </span>
+                <div key={i} className={item.className}> {item.title} </div>
             ))}
         </div>
     )

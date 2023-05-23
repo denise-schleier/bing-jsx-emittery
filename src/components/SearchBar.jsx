@@ -11,14 +11,17 @@ export function SearchBar({ ctx }) {
         setQuery(event.target.value)
     }
 
-    function handleOK() {
+    function handleOK(e) {
+        e.preventDefault()
         emittery.emit('query', query)
     }
 
     return (
         <div>
+            <form>
             <input type="text" onChange={handleInputChange} />
-            <button onClick={handleOK}>OK</button>
+            <button type="submit" onClick={handleOK}>OK</button>
+            </form>
         </div>
     )
 }
